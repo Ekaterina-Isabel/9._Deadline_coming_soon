@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //implementation 'org.projectlombok:lombok:1.18.22'
+    //implementation 'org.projectlombok:lombok:1.18.22'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    testImplementation 'msql:mysql-connectior-java:8.0.18'      // Подключение JDBC
+
+    testImplementation 'com.github.javafaker:javafaker:1.0.1'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'        // подключение библиотеки DBUtils
+}
+
+test {
+    useJUnitPlatform()
+}
