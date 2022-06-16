@@ -2,7 +2,6 @@ version: '3.7'
 services:
   mysql:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
       - '3306:3306'
@@ -13,4 +12,4 @@ services:
       - MYSQL_PASSWORD=pass
 
     volumes:
-      - ./init_db_schema:/docker-entrypoint-initdb.d
+      - ./init_scripts:/docker-entrypoint-initdb.d
