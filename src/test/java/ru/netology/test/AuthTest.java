@@ -26,7 +26,8 @@ public class AuthTest {
         var authInfo = DataHelper.getCorrectAuthInfo();
         var verificationPage = loginPage.loginUser(authInfo);
         var verificationCode = DataHelper.getVerificationCode(authInfo.getLogin());
-        verificationPage.inputVerifyCode(verificationCode);
+        var personalAccountPage = verificationPage.inputVerifyCode(verificationCode);
+        personalAccountPage.getPersonalAccount();
     }
 
     @Test
@@ -36,12 +37,5 @@ public class AuthTest {
         var verificationPage = loginPage.loginUser(authInfo);
         var verificationCode = DataHelper.getInvalidVerifyCode();
         verificationPage.inputInvalidCode(verificationCode);
-    }
-
-    @Test
-    void shouldBlockUserAccount() {
-        var loginPage = new LoginPage();
-        var authInfo = DataHelper.getIncorrectAuthInfo();
-        loginPage.inputWrongLoginThreeTimes(authInfo);
     }
 }
